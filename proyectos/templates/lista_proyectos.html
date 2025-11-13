@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Proyectos</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fafafa;
+        }
+
+        table {
+            width: 90%;
+            margin: 40px auto;
+            border-collapse: collapse;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-left: 5%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center;">Proyectos Registrados</h2>
+    <a href="/">🏠 Inicio</a>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+            <th>Creador</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+        </tr>
+        {% for proyecto in proyectos %}
+        <tr>
+            <td>{{ proyecto.nombre }}</td>
+            <td>{{ proyecto.descripcion }}</td>
+            <td>{{ proyecto.categoria }}</td>
+            <td>{{ proyecto.creador }}</td>
+            <td>{{ proyecto.monto_requerido }}</td>
+            <td>{{ proyecto.estado }}</td>
+            <td>{{ proyecto.fecha_creacion|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7" style="text-align:center;">No hay proyectos registrados</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
