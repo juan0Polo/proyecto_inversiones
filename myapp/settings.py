@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Implmentacion de variables de entorno
@@ -10,14 +9,13 @@ SECRET_KEY = 'django-insecure-y7i6tv-n9jvxmds_%+kt6hc)hz0@i8+1x(m=7gd_u_vmpf0yzo
 DEBUG = True
 # DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = 'proyetosinversiones-e5h2grdne3b9bah9.canadacentral-01.azurewebsites.net'
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split()
 
 # STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # SECRET_KEY = 'django-insecure-y7i6tv-n9jvxmds_%+kt6hc)hz0@i8+1x(m=7gd_u_vmpf0yzo'
-
 
 INSTALLED_APPS = [
     "proyectos.apps.ProyectosConfig",
