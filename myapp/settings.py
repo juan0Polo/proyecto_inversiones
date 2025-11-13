@@ -5,13 +5,16 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Implmentacion de variables de entorno
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret")
-DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
+SECRET_KEY = 'django-insecure-y7i6tv-n9jvxmds_%+kt6hc)hz0@i8+1x(m=7gd_u_vmpf0yzo'
+# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret")
+DEBUG = True
+# DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split()
+ALLOWED_HOSTS = 'proyetosinversiones-e5h2grdne3b9bah9.canadacentral-01.azurewebsites.net'
+# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split()
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # SECRET_KEY = 'django-insecure-y7i6tv-n9jvxmds_%+kt6hc)hz0@i8+1x(m=7gd_u_vmpf0yzo'
 
@@ -70,12 +73,13 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': os.getenv('MONGODB_NAME'),
-        # 'NAME': 'db_proyectos_inversiones',
+        # 'NAME': os.getenv('MONGODB_NAME'),
+        'NAME': 'db_proyectos_inversiones',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            # 'host': 'mongodb+srv://juanpablopolo29_db_user:wERieX7nG2PMPJsl@clusterproyectinv.pcxbuwh.mongodb.net/?appName=ClusterProyectInv',
-            'host': os.getenv('MONGODB_URI'),
+            'host': 'mongodb+srv://juanpablopolo29_db_user:wERieX7nG2PMPJsl@clusterproyectinv.pcxbuwh.mongodb.net/?appName=ClusterProyectInv',
+            # 'host': os.getenv('MONGODB_URI'),
+            # 'host': 'mongodb://localhost:27017',
             # 'host': 'mongodb://localhost:27017',
         }
     }
