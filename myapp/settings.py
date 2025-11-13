@@ -20,17 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret")
 DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1").split()
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split()
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # SECRET_KEY = 'django-insecure-y7i6tv-n9jvxmds_%+kt6hc)hz0@i8+1x(m=7gd_u_vmpf0yzo'
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -88,11 +83,12 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': os.getenv('MONGODB_NAME') or 'db_proyectos_inversiones',
+        'NAME': os.getenv('MONGODB_NAME'),
         # 'NAME': 'db_proyectos_inversiones',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': os.getenv('MONGODB_URI') or 'mongodb://localhost:27017',
+            # 'host': 'mongodb+srv://juanpablopolo29_db_user:wERieX7nG2PMPJsl@clusterproyectinv.pcxbuwh.mongodb.net/?appName=ClusterProyectInv',
+            'host': os.getenv('MONGODB_URI'),
             # 'host': 'mongodb://localhost:27017',
         }
     }
