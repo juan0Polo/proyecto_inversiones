@@ -1,7 +1,7 @@
 from proyectos.models import Proyecto
 from django.core.exceptions import ObjectDoesNotExist
 
-def crear_proyecto(nombre, descripcion, categoria, creador, monto_requerido, estado='En revisión'):
+def crear_proyecto(nombre, descripcion, categoria, creador, monto_requerido, estado='En revisión', usuario=None):
     if Proyecto.objects.filter(nombre=nombre, creador=creador).exists():
         return {'error': 'Ya existe un proyecto con este nombre para este creador.'}
     
@@ -11,7 +11,7 @@ def crear_proyecto(nombre, descripcion, categoria, creador, monto_requerido, est
         categoria=categoria,
         creador=creador,
         monto_requerido=monto_requerido,
-        estado=estado
+        estado=estado,
     )
     nuevo_proyecto.save()
     return {'mensaje': 'Proyecto creado exitosamente', 'proyecto': nuevo_proyecto}

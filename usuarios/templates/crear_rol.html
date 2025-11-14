@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="POST">
+        <h2>Registrar Nuevo Rol</h2>
+        {% csrf_token %}
+        <input type="text" name="nombre_rol" placeholder="Nombre rol" required>
+        <input type="text" name="descripcion" placeholder="Descripcion" required>
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+
+</html>
