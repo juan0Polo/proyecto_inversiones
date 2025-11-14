@@ -4,4 +4,3 @@ dnspython
 gunicorn
 Django==3.2.25
 djongo==1.3.6
-sqlparse==0.2.4
